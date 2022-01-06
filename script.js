@@ -7,9 +7,17 @@ function init () {
     button.addEventListener('click', event => {
         paragraph.innerHTML = 'Houston! We have liftoff!';
      });
-     missionAbort.addEventListener("mouseout", function( event ) {
+     missionAbort.addEventListener("mouseenter", function( event ) {
         event.target.style.backgroundColor = 'red';
      });
+     missionAbort.addEventListener('mouseleave', function( event ) {
+        event.target.style.backgroundColor = '';
+     });
+     missionAbort.addEventListener('click',event=>{
+         if(window.confirm('Are you sure?')){
+             paragraph.innerHTML="Mission aborted"
+         }         
+     })
 }
 
 window.addEventListener("load", init);
